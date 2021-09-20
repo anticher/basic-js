@@ -23,7 +23,42 @@ import { NotImplementedError } from '../extensions/index.js';
  *  [1, 1, 1]
  * ]
  */
-export default function minesweeper (/* matrix */) {
-  throw new NotImplementedError('Not implemented');
+export default function minesweeper(matrix) {
+  // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
+  let result = []
+  for (let i = 0; i < matrix.length; i++) {
+    let arr = []
+    for (let j = 0; j < matrix[i].length; j++) {
+      let square = 0
+      if (matrix[i - 1] !==undefined && matrix[i - 1][j - 1] !==undefined && matrix[i - 1][j - 1]) {
+        square++
+        console.log(matrix[i - 1][j - 1])
+      }
+      if (matrix[i - 1] !==undefined && matrix[i - 1][j]) {
+        square++
+      }
+      if (matrix[i - 1] !==undefined && matrix[i - 1][j + 1] !==undefined && matrix[i - 1][j + 1]) {
+        square++
+      }
+      if (matrix[i][j - 1] !==undefined && matrix[i][j - 1]) {
+        square++
+      }
+      if (matrix[i][j + 1] !==undefined && matrix[i][j + 1]) {
+        square++
+      }
+      if (matrix[i + 1] !==undefined && matrix[i + 1][j - 1] !==undefined && matrix[i + 1][j - 1]) {
+        square++
+      }
+      if (matrix[i + 1] !==undefined && matrix[i + 1][j]) {
+        square++
+      }
+      if (matrix[i + 1] !==undefined && matrix[i + 1][j + 1] !==undefined && matrix[i + 1][j + 1]) {
+        square++
+      }
+      arr.push(square)
+    }
+    result.push(arr)
+  }
+  return result
 }
